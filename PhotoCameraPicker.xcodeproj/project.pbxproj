@@ -14,6 +14,7 @@
 		076330102A2230A100761FD5 /* ZoomableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0763300E2A2230A100761FD5 /* ZoomableScrollView.swift */; };
 		076330112A2230A100761FD5 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0763300F2A2230A100761FD5 /* ImagePicker.swift */; };
 		076330132A2230AA00761FD5 /* FileManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076330122A2230AA00761FD5 /* FileManager+Extension.swift */; };
+		076330152A22312E00761FD5 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076330142A22312E00761FD5 /* ViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		0763300E2A2230A100761FD5 /* ZoomableScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomableScrollView.swift; sourceTree = "<group>"; };
 		0763300F2A2230A100761FD5 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
 		076330122A2230AA00761FD5 /* FileManager+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FileManager+Extension.swift"; sourceTree = "<group>"; };
+		076330142A22312E00761FD5 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,6 +106,7 @@
 		0763300C2A22308200761FD5 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				076330142A22312E00761FD5 /* ViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -190,6 +193,7 @@
 				076330132A2230AA00761FD5 /* FileManager+Extension.swift in Sources */,
 				076330112A2230A100761FD5 /* ImagePicker.swift in Sources */,
 				076330102A2230A100761FD5 /* ZoomableScrollView.swift in Sources */,
+				076330152A22312E00761FD5 /* ViewModel.swift in Sources */,
 				07632FFC2A222F7000761FD5 /* PhotoCameraPickerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
