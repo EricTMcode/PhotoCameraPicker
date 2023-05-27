@@ -27,17 +27,22 @@ struct ContentView: View {
                 }
                 HStack {
                     Button {
-                        
+                        vm.source = .camera
+                        vm.showPhotoPicker()
                     } label: {
                         Text("Camera")
                     }
                     Button {
-                        
+                        vm.source = .library
+                        vm.showPhotoPicker()
                     } label: {
                         Text("Photos")
                     }
                 }
                 Spacer()
+            }
+            .sheet(isPresented: $vm.showPicker) {
+                ImagePicker(sourceType: vm.source == .library ? .photoLibrary : .camera, selectedImage: $vm.image)
             }
             .navigationTitle("My Images")
         }
