@@ -11,6 +11,9 @@
 		07632FFE2A222F7000761FD5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07632FFD2A222F7000761FD5 /* ContentView.swift */; };
 		076330002A222F7100761FD5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 07632FFF2A222F7100761FD5 /* Assets.xcassets */; };
 		076330032A222F7100761FD5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 076330022A222F7100761FD5 /* Preview Assets.xcassets */; };
+		076330102A2230A100761FD5 /* ZoomableScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0763300E2A2230A100761FD5 /* ZoomableScrollView.swift */; };
+		076330112A2230A100761FD5 /* ImagePicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0763300F2A2230A100761FD5 /* ImagePicker.swift */; };
+		076330132A2230AA00761FD5 /* FileManager+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076330122A2230AA00761FD5 /* FileManager+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +22,9 @@
 		07632FFD2A222F7000761FD5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		07632FFF2A222F7100761FD5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		076330022A222F7100761FD5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		0763300E2A2230A100761FD5 /* ZoomableScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ZoomableScrollView.swift; sourceTree = "<group>"; };
+		0763300F2A2230A100761FD5 /* ImagePicker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImagePicker.swift; sourceTree = "<group>"; };
+		076330122A2230AA00761FD5 /* FileManager+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "FileManager+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +58,11 @@
 			isa = PBXGroup;
 			children = (
 				07632FFB2A222F7000761FD5 /* PhotoCameraPickerApp.swift */,
-				07632FFD2A222F7000761FD5 /* ContentView.swift */,
+				0763300D2A22308700761FD5 /* Views */,
+				0763300C2A22308200761FD5 /* ViewModels */,
+				0763300B2A22307C00761FD5 /* Models */,
+				0763300A2A22307300761FD5 /* UIViewRepresentables */,
+				076330092A22306A00761FD5 /* Extensions */,
 				07632FFF2A222F7100761FD5 /* Assets.xcassets */,
 				076330012A222F7100761FD5 /* Preview Content */,
 			);
@@ -65,6 +75,45 @@
 				076330022A222F7100761FD5 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		076330092A22306A00761FD5 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				076330122A2230AA00761FD5 /* FileManager+Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0763300A2A22307300761FD5 /* UIViewRepresentables */ = {
+			isa = PBXGroup;
+			children = (
+				0763300F2A2230A100761FD5 /* ImagePicker.swift */,
+				0763300E2A2230A100761FD5 /* ZoomableScrollView.swift */,
+			);
+			path = UIViewRepresentables;
+			sourceTree = "<group>";
+		};
+		0763300B2A22307C00761FD5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		0763300C2A22308200761FD5 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		0763300D2A22308700761FD5 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				07632FFD2A222F7000761FD5 /* ContentView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,6 +187,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				07632FFE2A222F7000761FD5 /* ContentView.swift in Sources */,
+				076330132A2230AA00761FD5 /* FileManager+Extension.swift in Sources */,
+				076330112A2230A100761FD5 /* ImagePicker.swift in Sources */,
+				076330102A2230A100761FD5 /* ZoomableScrollView.swift in Sources */,
 				07632FFC2A222F7000761FD5 /* PhotoCameraPickerApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
