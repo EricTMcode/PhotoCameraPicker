@@ -10,5 +10,6 @@ import SwiftUI
 class ViewModel: ObservableObject {
     @Published var image: UIImage?
     @Published var showPicker = false
+    @Published var sources: Picker.Source = .library
     
 }

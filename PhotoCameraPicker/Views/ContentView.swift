@@ -25,6 +25,18 @@ struct ContentView: View {
                         .frame(minWidth: 0, maxWidth: .infinity)
                         .padding(.horizontal)
                 }
+                HStack {
+                    Button {
+                        
+                    } label: {
+                        Text("Camera")
+                    }
+                    Button {
+                        
+                    } label: {
+                        Text("Photos")
+                    }
+                }
                 Spacer()
             }
             .navigationTitle("My Images")
