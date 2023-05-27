@@ -47,6 +47,11 @@ struct ContentView: View {
                 ImagePicker(sourceType: vm.source == .library ? .photoLibrary : .camera, selectedImage: $vm.image)
                     .ignoresSafeArea()
             }
+            .alert("Error", isPresented: $vm.showCameraAlert, presenting: vm.cameraError) { cameraError in
+                cameraError.button
+            } message: { cameraError in
+                Text(cameraError.message)
+            }
             .navigationTitle("My Images")
         }
     }

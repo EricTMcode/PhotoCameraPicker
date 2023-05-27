@@ -5,7 +5,7 @@
 //  Created by Eric on 27/05/2023.
 //
 
-import UIKit
+import SwiftUI
 import AVFoundation
 
 enum Picker {
@@ -30,11 +30,27 @@ enum Picker {
         }
     }
     
-    static func checkPermissions() -> Bool {
+    static func checkPermissions() throws {
         if UIImagePickerController.isSourceTypeAvailable(.camera) {
-            return true
+            let authStatus = AVCaptureDevice.authorizationStatus(for: AVMediaType.video)
+            switch authStatus {
+            case .restricted:
+                throw PickerError.restricted
+            case .denied:
+                throw PickerError.denied
+            default:
+                break
+            }
         } else {
-            return false
+            throw PickerError.unavailable
         }
+    }
+    
+    struct CameraErrorType {
+        let error: Picker.PickerError
+        var message: String {
+            error.localizedDescription
+        }
+        let button = Button("OK", role: .cancel) {}
     }
 }
