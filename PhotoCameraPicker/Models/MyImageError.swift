@@ -8,10 +8,12 @@
 import SwiftUI
 
 enum MyImageError: Error, LocalizedError {
-case readError
-case decodingError
-case encodingError
-case saveError
+    case readError
+    case decodingError
+    case encodingError
+    case saveError
+    case saveImageError
+    case readImageError
     
     var errorDescription: String? {
         switch self {
@@ -23,6 +25,10 @@ case saveError
             return NSLocalizedString("Could not save your MyImage data, plese reinstall the app", comment: "")
         case .saveError:
             return NSLocalizedString("Could not save My Image json file. Please reinstall the app.", comment: "")
+        case .saveImageError:
+            return NSLocalizedString("Could not save image. Please resinstall the app.", comment: "")
+        case .readImageError:
+            return NSLocalizedString("Could not load image. Please resinstall the app.", comment: "")
         }
     }
     
