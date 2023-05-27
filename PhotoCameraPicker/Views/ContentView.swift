@@ -13,10 +13,12 @@ struct ContentView: View {
         NavigationStack {
             VStack {
                 if let image = vm.image {
-                    Image(uiImage: image)
-                        .resizable()
-                        .scaledToFit()
+                    ZoomableScrollView {
+                        Image(uiImage: image)
+                            .resizable()
+                            .scaledToFit()
                         .frame(minWidth: 0, maxWidth: .infinity)
+                    }
                 } else {
                     Image(systemName: "photo.fill")
                         .resizable()
@@ -43,6 +45,7 @@ struct ContentView: View {
             }
             .sheet(isPresented: $vm.showPicker) {
                 ImagePicker(sourceType: vm.source == .library ? .photoLibrary : .camera, selectedImage: $vm.image)
+                    .ignoresSafeArea()
             }
             .navigationTitle("My Images")
         }
