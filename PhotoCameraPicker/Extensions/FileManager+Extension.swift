@@ -7,7 +7,7 @@
 
 import UIKit
 
-let fileName = ""
+let fileName = "MyImages.json"
 
 extension FileManager {
     static var docDirURL: URL {
@@ -16,5 +16,9 @@ extension FileManager {
     
     func docExist(named docName: String) -> Bool {
         fileExists(atPath: Self.docDirURL.appendingPathComponent(docName).path)
+    }
+    
+    func saveDocument(contents: String) throws {
+        
     }
 }
