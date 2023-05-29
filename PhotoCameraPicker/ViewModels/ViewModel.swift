@@ -13,6 +13,7 @@ class ViewModel: ObservableObject {
     @Published var source: Picker.Source = .library
     @Published var showCameraAlert = false
     @Published var cameraError: Picker.CameraErrorType?
+    @Published var imageName: String = ""
     
     func showPhotoPicker() {
         do {

@@ -27,18 +27,22 @@ struct ContentView: View {
                         .frame(minWidth: 0, maxWidth: .infinity)
                         .padding(.horizontal)
                 }
-                HStack {
-                    Button {
-                        vm.source = .camera
-                        vm.showPhotoPicker()
-                    } label: {
-                        Text("Camera")
-                    }
-                    Button {
-                        vm.source = .library
-                        vm.showPhotoPicker()
-                    } label: {
-                        Text("Photos")
+                VStack {
+                    TextField("Image Name", text: $vm.imageName)
+                        .textFieldStyle(.roundedBorder)
+                    HStack {
+                        Button {
+                            vm.source = .camera
+                            vm.showPhotoPicker()
+                        } label: {
+                            ButtonLabel(symbolName: "camera", label: "Camera")
+                        }
+                        Button {
+                            vm.source = .library
+                            vm.showPhotoPicker()
+                        } label: {
+                            ButtonLabel(symbolName: "photo", label: "Photo")
+                        }
                     }
                 }
                 Spacer()
