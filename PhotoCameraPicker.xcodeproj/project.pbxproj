@@ -19,6 +19,7 @@
 		076330192A223CBB00761FD5 /* MyImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076330182A223CBB00761FD5 /* MyImage.swift */; };
 		0763301B2A223D4400761FD5 /* MyImageError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0763301A2A223D4400761FD5 /* MyImageError.swift */; };
 		0763301D2A24C82300761FD5 /* ButtonLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0763301C2A24C82300761FD5 /* ButtonLabel.swift */; };
+		0763301F2A24DAA500761FD5 /* ContentView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0763301E2A24DAA500761FD5 /* ContentView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		076330182A223CBB00761FD5 /* MyImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyImage.swift; sourceTree = "<group>"; };
 		0763301A2A223D4400761FD5 /* MyImageError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyImageError.swift; sourceTree = "<group>"; };
 		0763301C2A24C82300761FD5 /* ButtonLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonLabel.swift; sourceTree = "<group>"; };
+		0763301E2A24DAA500761FD5 /* ContentView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ContentView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,6 +128,7 @@
 			isa = PBXGroup;
 			children = (
 				07632FFD2A222F7000761FD5 /* ContentView.swift */,
+				0763301E2A24DAA500761FD5 /* ContentView+Extension.swift */,
 				0763301C2A24C82300761FD5 /* ButtonLabel.swift */,
 			);
 			path = Views;
@@ -209,6 +212,7 @@
 				076330102A2230A100761FD5 /* ZoomableScrollView.swift in Sources */,
 				0763301D2A24C82300761FD5 /* ButtonLabel.swift in Sources */,
 				076330152A22312E00761FD5 /* ViewModel.swift in Sources */,
+				0763301F2A24DAA500761FD5 /* ContentView+Extension.swift in Sources */,
 				07632FFC2A222F7000761FD5 /* PhotoCameraPickerApp.swift in Sources */,
 				0763301B2A223D4400761FD5 /* MyImageError.swift in Sources */,
 			);

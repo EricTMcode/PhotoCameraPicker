@@ -47,6 +47,8 @@ class ViewModel: ObservableObject {
     func reset() {
         image = nil
         imageName = ""
+        isEditing = false
+        selectedImage = nil
     }
     
     func display(_ myImage: MyImage) {
@@ -89,6 +91,7 @@ class ViewModel: ObservableObject {
         do {
             let data = try encoder.encode(myImages)
             let jsonString = String(decoding: data, as: UTF8.self)
+            reset()
             do {
                 try FileManager().saveDocument(contents: jsonString)
             } catch {
