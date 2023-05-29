@@ -55,6 +55,22 @@ class ViewModel: ObservableObject {
         selectedImage = myImage
     }
     
+    func updateSelected() {
+        if let index = myImages.firstIndex(where: {$0.id == selectedImage!.id}) {
+            myImages[index].name = imageName
+            saveMyImagesJSONFile()
+            reset()
+        }
+    }
+    
+    func deleteSelected() {
+        if let index = myImages.firstIndex(where: {$0.id == selectedImage!.id}) {
+            myImages.remove(at: index)
+            saveMyImagesJSONFile()
+            reset()
+        }
+    }
+    
     func addMyImage(_ name: String, image: UIImage) {
         reset()
         let myImage = MyImage(name: name)
