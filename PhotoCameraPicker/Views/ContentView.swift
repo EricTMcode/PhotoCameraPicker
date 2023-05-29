@@ -17,7 +17,7 @@ struct ContentView: View {
                         Image(uiImage: image)
                             .resizable()
                             .scaledToFit()
-                        .frame(minWidth: 0, maxWidth: .infinity)
+                            .frame(minWidth: 0, maxWidth: .infinity)
                     }
                 } else {
                     Image(systemName: "photo.fill")
@@ -28,8 +28,26 @@ struct ContentView: View {
                         .padding(.horizontal)
                 }
                 VStack {
-                    TextField("Image Name", text: $vm.imageName)
-                        .textFieldStyle(.roundedBorder)
+                    TextField("Image Name", text: $vm.imageName) { isEditing in
+                        vm.isEditing = isEditing
+                    }
+                    .textFieldStyle(.roundedBorder)
+                    HStack {
+                        Button {
+                            
+                        } label: {
+                            ButtonLabel(symbolName: vm.selectedImage == nil ? "square.and.arrow.down.fill" : "square.and.arrow.up.fill", label: vm.selectedImage == nil ? "Save" : "Update")
+                        }
+                        .disabled(vm.buttonDisabled)
+                        .opacity(vm.buttonDisabled ? 0.6 : 1)
+                        if !vm.deleteButtonIsHidden {
+                            Button {
+                                
+                            } label: {
+                                ButtonLabel(symbolName: "trash", label: "Delete")
+                            }
+                        }
+                    }
                     HStack {
                         Button {
                             vm.source = .camera
@@ -45,6 +63,7 @@ struct ContentView: View {
                         }
                     }
                 }
+                .padding()
                 Spacer()
             }
             .sheet(isPresented: $vm.showPicker) {

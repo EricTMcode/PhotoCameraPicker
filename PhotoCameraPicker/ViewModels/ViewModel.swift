@@ -14,6 +14,16 @@ class ViewModel: ObservableObject {
     @Published var showCameraAlert = false
     @Published var cameraError: Picker.CameraErrorType?
     @Published var imageName: String = ""
+    @Published var isEditing = false
+    @Published var selectedImage: MyImage?
+    
+    var buttonDisabled: Bool {
+        imageName.isEmpty || image == nil
+    }
+    
+    var deleteButtonIsHidden: Bool {
+        isEditing || selectedImage == nil
+    }
     
     func showPhotoPicker() {
         do {
