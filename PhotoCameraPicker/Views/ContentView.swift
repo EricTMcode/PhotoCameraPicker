@@ -12,6 +12,25 @@ struct ContentView: View {
     var body: some View {
         NavigationStack {
             VStack {
+                ScrollView(.horizontal, showsIndicators: false) {
+                    HStack(spacing: 10) {
+                        ForEach(vm.myImages) { myImage in
+                            VStack {
+                                Image(uiImage: myImage.image)
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 100, height: 100)
+                                    .clipShape(RoundedRectangle(cornerRadius: 15))
+                                    .shadow(color: .black.opacity(0.6), radius: 2, x: 2, y: 2)
+                                Text(myImage.name)
+                            }
+                            .onTapGesture {
+                                vm.display(myImage)
+                            }
+                        }
+                    }
+                }
+                .padding(.horizontal)
                 if let image = vm.image {
                     ZoomableScrollView {
                         Image(uiImage: image)
@@ -57,6 +76,11 @@ struct ContentView: View {
                         } label: {
                             ButtonLabel(symbolName: "camera", label: "Camera")
                         }
+                        .alert("Error", isPresented: $vm.showCameraAlert, presenting: vm.cameraError) { cameraError in
+                            cameraError.button
+                        } message: { cameraError in
+                            Text(cameraError.message)
+                        }
                         Button {
                             vm.source = .library
                             vm.showPhotoPicker()
@@ -68,11 +92,16 @@ struct ContentView: View {
                 .padding()
                 Spacer()
             }
+            .task {
+                if FileManager().docExist(named: fileName) {
+                    vm.loadMyImagesJSONFile()
+                }
+            }
             .sheet(isPresented: $vm.showPicker) {
                 ImagePicker(sourceType: vm.source == .library ? .photoLibrary : .camera, selectedImage: $vm.image)
                     .ignoresSafeArea()
             }
-            .alert("Error", isPresented: $vm.showCameraAlert, presenting: vm.cameraError) { cameraError in
+            .alert("Error", isPresented: $vm.showFileAlert, presenting: vm.appError) { cameraError in
                 cameraError.button
             } message: { cameraError in
                 Text(cameraError.message)

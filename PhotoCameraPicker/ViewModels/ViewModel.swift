@@ -44,7 +44,19 @@ class ViewModel: ObservableObject {
         }
     }
     
+    func reset() {
+        image = nil
+        imageName = ""
+    }
+    
+    func display(_ myImage: MyImage) {
+        image = myImage.image
+        imageName = myImage.name
+        selectedImage = myImage
+    }
+    
     func addMyImage(_ name: String, image: UIImage) {
+        reset()
         let myImage = MyImage(name: name)
         do {
             try FileManager().saveImage("\(myImage.id)", image: image)
@@ -71,6 +83,22 @@ class ViewModel: ObservableObject {
         } catch {
             showFileAlert = true
             appError = MyImageError.ErrorType(error: .encodingError)
+        }
+    }
+    
+    func loadMyImagesJSONFile() {
+        do {
+            let data  = try FileManager().readDocument()
+            let decoder = JSONDecoder()
+            do {
+                myImages = try decoder.decode([MyImage].self, from: data)
+            } catch {
+                showFileAlert = true
+                appError = MyImageError.ErrorType(error: .decodingError)
+            }
+        } catch {
+            showFileAlert = true
+            appError = MyImageError.ErrorType(error: error as! MyImageError)
         }
     }
 }
