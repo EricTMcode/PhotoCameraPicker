@@ -34,7 +34,9 @@ struct ContentView: View {
                     .textFieldStyle(.roundedBorder)
                     HStack {
                         Button {
-                            
+                            if vm.selectedImage == nil {
+                                vm.addMyImage(vm.imageName, image: vm.image!)
+                            }
                         } label: {
                             ButtonLabel(symbolName: vm.selectedImage == nil ? "square.and.arrow.down.fill" : "square.and.arrow.up.fill", label: vm.selectedImage == nil ? "Save" : "Update")
                         }

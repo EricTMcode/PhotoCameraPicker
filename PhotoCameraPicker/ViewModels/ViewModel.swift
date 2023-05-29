@@ -16,6 +16,13 @@ class ViewModel: ObservableObject {
     @Published var imageName: String = ""
     @Published var isEditing = false
     @Published var selectedImage: MyImage?
+    @Published var myImages: [MyImage] = []
+    @Published var showFileAlert = false
+    @Published var appError: MyImageError.ErrorType?
+    
+    init() {
+        print(FileManager.docDirURL.path)
+    }
     
     var buttonDisabled: Bool {
         imageName.isEmpty || image == nil
@@ -34,6 +41,36 @@ class ViewModel: ObservableObject {
         } catch {
             showCameraAlert = true
             cameraError = Picker.CameraErrorType(error: error as! Picker.PickerError)
+        }
+    }
+    
+    func addMyImage(_ name: String, image: UIImage) {
+        let myImage = MyImage(name: name)
+        do {
+            try FileManager().saveImage("\(myImage.id)", image: image)
+            myImages.append(myImage)
+            saveMyImagesJSONFile()
+        } catch {
+            showFileAlert = true
+            appError = MyImageError.ErrorType(error: error as! MyImageError)
+        }
+    }
+    
+    func saveMyImagesJSONFile() {
+        let encoder = JSONEncoder()
+        do {
+            let data = try encoder.encode(myImages)
+            let jsonString = String(decoding: data, as: UTF8.self)
+            do {
+                try FileManager().saveDocument(contents: jsonString)
+            } catch {
+                showFileAlert = true
+                appError = MyImageError.ErrorType(error: .encodingError)
+                
+            }
+        } catch {
+            showFileAlert = true
+            appError = MyImageError.ErrorType(error: .encodingError)
         }
     }
 }
